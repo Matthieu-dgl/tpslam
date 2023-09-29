@@ -18,21 +18,17 @@
 include_once ('config.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    var_dump($_POST);
     $pseudo = $_POST["pseudo"];
     $password = $_POST["password"];
 
-    $sql = "SELECT password FROM contact WHERE pseudo = ? ";
-    var_dump($sql);
-
+    $sql = "SELECT password FROM contact WHERE pseudo = :pseudo";
     $stmt = $pdo->prepare($sql);
 
-  //  try {
-        $stmt->execute([$pseudo]);
-        $user = $stmt->fetchAll();
-        $hashedPassword = $stmt->fetchColumn();
-        var_dump($user);
+    try {
+        $stmt->execute([':pseudo' => $pseudo]);
+        $user = $stmt->fetch();
+        $hashedPassword = $user['password'];
+        var_dump($hashedPassword);
         if ($hashedPassword && password_verify($password, $hashedPassword)) {
             session_start();
             $_SESSION['pseudo'] = $pseudo;
@@ -41,9 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             echo "Authentification échouée. Veuillez réessayer.";
         }
-/*   } catch (PDOException $e) {
+    } catch (PDOException $e) {
         echo "Erreur d'authentification : " . $e->getMessage();
-    }*/
+    }
 }
 ?>
 

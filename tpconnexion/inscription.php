@@ -32,15 +32,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($count > 0) {
             echo "Le pseudo existe déjà. Veuillez en choisir un autre.";
         } else {
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
             $sql = "INSERT INTO contact (pseudo, password) VALUES (?, ?)";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute([$pseudo, $password]);
+            $stmt->execute([$pseudo, $hashedPassword]);
+
             session_start();
             echo "Inscription réussie.";
             header("Location: index.php");
         }
     } else {
-        // Gérer le cas où les données pseudo et motdepasse ne sont pas définies
     }
 }
 ?>
