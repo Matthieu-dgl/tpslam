@@ -1,3 +1,7 @@
+<?php
+include ('hhf/head.php');
+?>
+
 <html>
 <body>
 <h1>Connexion</h1>
@@ -8,7 +12,7 @@
     <label for="password">Mot de passe :</label>
     <input type="password" id="password" name="password" required><br><br>
 
-    <input type="submit" value="Se connecter">
+    <input type="submit" value="Se connecter"><br>
     <button name="Pas de compte"><a href="inscription.php">Pas de compte</a></button>
 </form>
 </body>
@@ -28,7 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute([':pseudo' => $pseudo]);
         $user = $stmt->fetch();
         $hashedPassword = $user['password'];
-        var_dump($hashedPassword);
         if ($hashedPassword && password_verify($password, $hashedPassword)) {
             session_start();
             $_SESSION['pseudo'] = $pseudo;

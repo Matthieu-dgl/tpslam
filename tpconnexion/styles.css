@@ -1,0 +1,48 @@
+*{
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+/*---------------------------------------- Connexion - Inscription --------------------------------------------------*/
+body {
+    background-color: #7d5c65;
+}
+h1 {
+    font-size: 6em;
+    text-align: center;
+    margin-bottom: 5vh;
+}
+
+form {
+    text-align: center;
+    font-size: 3em;
+    border: solid;
+    width: 22vw;
+    border-color: #7c90db;
+    margin: 0 auto;
+}
+
+input {
+    font-size: 0.5em;
+}
+
+button {
+    font-size: 0.5em;
+    margin-top: 7vh;
+    background-color: #E5BEED;
+
+}
+
+button a{
+    color: white;
+
+}
+
+/*---------------------------------------- Index --------------------------------------------------*/
+
+p {
+    text-align: center;
+    font-size: 3em;
+}
+

@@ -1,3 +1,6 @@
+<?php
+include ('hhf/head.php');
+?>
 <html lang="fr">
 <body>
 <h1>Inscription</h1>
@@ -8,7 +11,9 @@
     <label for="password">Mot de passe :</label>
     <input type="password" id="password" name="password" required><br><br>
 
-    <input type="submit" value="S'inscrire">
+    <input type="submit" value="S'inscrire"><br>
+    <button name="Connexion"><a href="connexion.php">Vous avez un compte ?</a></button>
+
 </form>
 </body>
 </html>
