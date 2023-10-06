@@ -7,8 +7,8 @@ include ('hhf/head.php');
 <body>
 <h1>Inscription</h1>
 <form action="inscription.php" method="post" onsubmit="return validerFormulaire();">
-    <label for="pseudo">Pseudo :</label>
-    <input type="text" id="pseudo" name="pseudo" required><br><br>
+    <label for="pseudo">Email :</label>
+    <input type="email" id="pseudo" name="pseudo" required><br><br>
 
     <label for="password">Mot de passe :</label>
     <input type="password" id="password" name="password" required><br><br>
